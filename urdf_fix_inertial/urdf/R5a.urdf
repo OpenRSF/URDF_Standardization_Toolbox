@@ -51,12 +51,12 @@
 
   <joint name="${prefix}_arm_joint1" type="revolute">
     <origin xyz="0 0 0.0565" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="link1" />
+    <parent link="${prefix}_arm_base_link" />
+    <child link="${prefix}_arm_link1" />
     <axis xyz="0 0 1" />
     <limit lower="-10" upper="10" effort="100" velocity="1000" />
   </joint>
-  
+
   <link name="${prefix}_arm_link2">
     <inertial>
       <origin xyz="-0.12992 -0.0011822 -2.6366E-05" rpy="0 0 0" />
@@ -79,13 +79,15 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="${prefix}_arm_joint2" type="revolute">
     <origin xyz="0.02 0 0.047" rpy="0 0 0" />
-    <parent link="link1" />
-    <child link="link2" />
+    <parent link="${prefix}_arm_link1" />
+    <child link="${prefix}_arm_link2" />
     <axis xyz="0 1 0" />
     <limit lower="-10" upper="10" effort="100" velocity="1000" />
   </joint>
+
   <link name="${prefix}_arm_link3">
     <inertial>
       <origin xyz="0.16181 0.0011723 -0.05455" rpy="0 0 0" />
@@ -108,13 +110,15 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="${prefix}_arm_joint3" type="revolute">
     <origin xyz="-0.264 0 0" rpy="-3.1416 0 0" />
-    <parent link="link2" />
-    <child link="link3" />
+    <parent link="${prefix}_arm_link2" />
+    <child link="${prefix}_arm_link3" />
     <axis xyz="0 1 0" />
     <limit lower="-10" upper="10" effort="100" velocity="1000" />
   </joint>
+
   <link name="${prefix}_arm_link4">
     <inertial>
       <origin xyz="0.041751 0.0054236 -0.03337" rpy="0 0 0" />
@@ -137,13 +141,15 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="${prefix}_arm_joint4" type="revolute">
     <origin xyz="0.245 -5E-05 -0.06" rpy="0 0 0" />
-    <parent link="link3" />
-    <child link="link4" />
+    <parent link="${prefix}_arm_link3" />
+    <child link="${prefix}_arm_link4" />
     <axis xyz="0 1 0" />
     <limit lower="-10" upper="10" effort="100" velocity="1000" />
   </joint>
+  
   <link name="${prefix}_arm_link5">
     <inertial>
       <origin xyz="-8.3435E-05 -1.5428E-05 0.052216" rpy="0 0 0" />
@@ -168,8 +174,8 @@
   </link>
   <joint name="${prefix}_arm_joint5" type="revolute">
     <origin xyz="0.073914 5E-05 -0.083391" rpy="0 0 0" />
-    <parent link="link4" />
-    <child link="link5" />
+    <parent link="${prefix}_arm_link4" />
+    <child link="${prefix}_arm_link5" />
     <axis xyz="0 0 1" />
     <limit lower="-10" upper="10" effort="100" velocity="1000" />
   </joint>
@@ -197,8 +203,8 @@
   </link>
   <joint name="${prefix}_arm_joint6" type="revolute">
     <origin xyz="0.025286 0 0.083391" rpy="3.1416 0 0" />
-    <parent link="link5" />
-    <child link="link6" />
+    <parent link="${prefix}_arm_link5" />
+    <child link="${prefix}_arm_link6" />
     <axis xyz="1 0 0" />
     <limit lower="-10" upper="10" effort="100" velocity="1000" />
   </joint>
@@ -227,8 +233,8 @@
   </link>
   <joint name="${prefix}_arm_joint7" type="prismatic">
     <origin xyz="0.08657 0.024896 -0.0002436" rpy="0 0 0" />
-    <parent link="link6" />
-    <child link="link7" />
+    <parent link="${prefix}_arm_link6" />
+    <child link="${prefix}_arm_link7" />
     <axis xyz="0 1 0" />
     <limit lower="0" upper="0.044" effort="100" velocity="1000" />
   </joint>
@@ -257,8 +263,8 @@
   </link>
   <joint name="${prefix}_arm_joint8" type="prismatic">
     <origin xyz="0.08657 -0.0249 -0.00024366" rpy="0 0 0" />
-    <parent link="link6" />
-    <child link="link8" />
+    <parent link="${prefix}_arm_link6" />
+    <child link="${prefix}_arm_link8" />
     <axis xyz="0 -1 0" />
     <limit lower="0" upper="0.044" effort="100" velocity="1000" />
   </joint>
